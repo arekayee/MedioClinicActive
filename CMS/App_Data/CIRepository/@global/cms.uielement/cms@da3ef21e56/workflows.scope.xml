@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCaption>{$Development-Workflow_Edit.Scopes$}</ElementCaption>
+  <ElementCheckModuleReadPermission>True</ElementCheckModuleReadPermission>
+  <ElementDisplayName>{$Development-Workflow_Edit.Scopes$}</ElementDisplayName>
+  <ElementFromVersion>8.0</ElementFromVersion>
+  <ElementGUID>b39e17c5-eff6-4188-941a-0d431acd2fac</ElementGUID>
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>Workflows.Scope</ElementName>
+  <ElementOrder>4</ElementOrder>
+  <ElementPageTemplateID>
+    <CodeName>ListingWithSiteSelector</CodeName>
+    <GUID>ad73ab07-caed-4e21-b897-90544d6e06f1</GUID>
+    <ObjectType>cms.pagetemplate</ObjectType>
+  </ElementPageTemplateID>
+  <ElementParentID>
+    <CodeName>EditWorkflow</CodeName>
+    <GUID>a6943e38-35c3-47e4-837f-2a711baa0f8e</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS</CodeName>
+      <GUID>ce1a65a0-80dc-4c53-b0e7-bdecf0aa8c02</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementProperties>
+    <Data>
+      <AllowAll>False</AllowAll>
+      <allowempty>False</allowempty>
+      <AllowGlobal>False</AllowGlobal>
+      <DisplayBreadcrumbs>False</DisplayBreadcrumbs>
+      <EditActionURL ismacro="True">
+        <![CDATA[{% UIContext.GetElementUrl("CMS", "EditWorkflowScope", false) |(identity)GlobalAdministrator|(hash)217a869fa79701594407a46cb52277cce2514e3beb8ca9b85ee2170209a0089c%}?siteID={% UIContext.SiteID |(identity)GlobalAdministrator|(hash)1d5e85ed7053f24d76d6a36446dcf2f1bb3b7d0ae38f29da9ec240fb64fb6e39%}&scopeID={0}]]>
+      </EditActionURL>
+      <ExtenderClassName>
+        <![CDATA[CMS.WorkflowEngine.Web.UI.WorkflowScopeListControlExtender]]>
+      </ExtenderClassName>
+      <GridExtender>CMS.WorkflowEngine.Web.UI</GridExtender>
+      <includejquery>False</includejquery>
+      <ObjectType>cms.workflowscope</ObjectType>
+      <OrderBy>ScopeStartingPath, ScopeID</OrderBy>
+      <SelectorType>Classic</SelectorType>
+      <WhereCondition>
+        <![CDATA[ScopeWorkflowID = {% EditedObjectParent.ID |(identity)GlobalAdministrator|(hash)e47abce1e2900e6e119dbdaa195eb4a99f980001b59aa60178cbf55fefa1e346%} AND ScopeSiteID = {% UIContext.SiteID |(identity)GlobalAdministrator|(hash)1d5e85ed7053f24d76d6a36446dcf2f1bb3b7d0ae38f29da9ec240fb64fb6e39%}]]>
+      </WhereCondition>
+    </Data>
+  </ElementProperties>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS</CodeName>
+    <GUID>ce1a65a0-80dc-4c53-b0e7-bdecf0aa8c02</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementType>PageTemplate</ElementType>
+  <ElementVisibilityCondition>
+    <![CDATA[{%EditedObject.IsDocumentWorkflow && (GlobalObjects.Sites.Count > 0)|(identity)GlobalAdministrator|(hash)cd8ecd402bd9c11c65468e8fc279bc58f03765d9698717b97c3aa28c1f2886d2%}]]>
+  </ElementVisibilityCondition>
+</cms.uielement>

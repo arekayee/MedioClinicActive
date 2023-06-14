@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.transformation>
+  <TransformationClassID>
+    <CodeName>Ecommerce.Transformations</CodeName>
+    <GUID>7539c21d-cde0-4d71-ab9f-12de5ddec092</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </TransformationClassID>
+  <TransformationCode>
+<![CDATA[
+<tr>
+	<td style="text-align: left;">{%(IsProductOption) ? "&nbsp;&nbsp;&nbsp;" : ""%}{% Localize(SKUName)|(encode)true%}
+	{% (CartItemText != "" ? " '" + CartItemText + "' " : "")|(encode)true%}
+	{% SKUNumber|(encode)true%}</td>
+	<td style="text-align: right; vertical-align: top;">{%(IsProductOption && !IsAccessoryProduct) ? "" : Units %}</td>
+	<td style="text-align: right; vertical-align: top;">{%(IsProductOption && !IsAccessoryProduct) ? "" : UnitPrice.Format(Currency.CurrencyFormatString)|(encode)true |(identity)GlobalAdministrator|(hash)64dbc664b22fdddd65716cfc869fe45b18bbf26dacfd0afce37842cebacb07ae%}</td>
+	<td style="text-align: right; vertical-align: top;">{%(IsProductOption && !IsAccessoryProduct) ? "" : TotalDiscount.Format(Currency.CurrencyFormatString)|(encode)true |(identity)GlobalAdministrator|(hash)e74513754fe88d47b01ed7e411f04dfbb5fd7df07db5a2966afb77e3e403a3d2%}</td>
+	<td style="text-align: right; vertical-align: top;">{%(IsProductOption && !IsAccessoryProduct) ? "" : TotalPrice.Format(Currency.CurrencyFormatString)|(encode)true |(identity)GlobalAdministrator|(hash)32b4882e1a90e0e80c8163fe82db1e3ea7ae3e7d594eec28e8113e71d0285080%}</td>
+</tr>
+]]>
+  </TransformationCode>
+  <TransformationGUID>9072975e-2872-467e-a969-f1b2531ddbec</TransformationGUID>
+  <TransformationName>Order_ContentTable</TransformationName>
+  <TransformationType>text</TransformationType>
+</cms.transformation>
